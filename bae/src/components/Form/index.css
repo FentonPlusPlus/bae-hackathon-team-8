@@ -1,0 +1,10 @@
+.form-container{
+    display:flex;
+    flex-direction: column;
+    border:solid;
+    width: 50%;
+}   
+
+.message{
+    display: flex;
+}
