@@ -2,17 +2,19 @@ import "./App.css";
 import Form from "./components/Form";
 import ProgressBar from "./components/ProgressBar/index.js";
 import Footer from "./components/Footer";
-import Nav from './components/Nav';
+import Nav from "./components/Nav";
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
-import TeamStats from './components/TeamStats'
+import TeamStats from "./components/TeamStats";
 
 function App() {
   // const [progressValue, setProgressValue] = useState(50);
 
   const [points, setPoints] = useState();
 
-  useEffect(() => {getData()}, []);
+  useEffect(() => {
+    getData();
+  }, []);
 
   async function getData() {
     const response = await fetch("http://localhost:3000/api/points");
@@ -20,14 +22,11 @@ function App() {
     setPoints(data.payload[0][0].points);
   }
 
-  
-
   async function onClickHandler(data) {
-    await getData()
+    await getData();
 
-
-    let total = Number(data) + Number(points)
-    setPoints(total)
+    let total = Number(data) + Number(points);
+    setPoints(total);
     let dataObject = { points: total };
 
     await fetch("http://localhost:3000/api/points/1", {
@@ -45,8 +44,10 @@ function App() {
       <Nav />
       <Header />
       <ProgressBar points={points}></ProgressBar>
-      <Form onClickHandler={onClickHandler} />
-      <TeamStats points={points}/>
+      <div className="formteam-div">
+        <Form onClickHandler={onClickHandler} />
+        <TeamStats points={points} />
+      </div>
       <Footer />
     </div>
   );
