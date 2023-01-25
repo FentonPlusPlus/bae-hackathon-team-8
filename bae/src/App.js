@@ -1,11 +1,21 @@
 import "./App.css";
 import Form from "./components/Form";
 import ProgressBar from "./components/ProgressBar";
-import { useState } from "react";
-import Header from "./components/Header"
+import { useState, useEffect } from "react";
+import Header from "./components/Header";
 
 function App() {
   const [progressValue, setProgressValue] = useState(50);
+
+  const [points, setPoints] = useState(null);
+
+  useEffect(() => {getData()}, []);
+
+  async function getData() {
+    const response = await fetch("https://bae.onrender.com/api/points");
+    const data = await response.json();
+    setPoints(data);
+  }
 
   async function onClickHandler(data) {
     let dataObject = { points: Number(data) };
@@ -22,7 +32,7 @@ function App() {
 
   return (
     <div className="App">
-      <Header/>
+      <Header />
       <ProgressBar progressValue={progressValue}></ProgressBar>
       <Form onClickHandler={onClickHandler} />
     </div>
