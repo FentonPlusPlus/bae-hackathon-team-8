@@ -34,6 +34,7 @@ function Header() {
         <p>{fact}</p>
       </div>
     </div>
+
   )
 }
 
