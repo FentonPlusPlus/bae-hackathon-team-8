@@ -3,22 +3,29 @@ import Form from "./components/Form";
 import ProgressBar from "./components/ProgressBar";
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
+import TeamStats from './components/TeamStats'
 
 function App() {
   const [progressValue, setProgressValue] = useState(50);
 
-  const [points, setPoints] = useState(null);
+  const [points, setPoints] = useState();
 
   useEffect(() => {getData()}, []);
 
   async function getData() {
-    const response = await fetch("https://bae.onrender.com/api/points");
+    const response = await fetch("http://localhost:3000/api/points");
     const data = await response.json();
-    setPoints(data);
+    setPoints(data.payload[0][0].points);
   }
 
+  
+
   async function onClickHandler(data) {
-    let dataObject = { points: Number(data) };
+    await getData()
+
+    let total = Number(data) + Number(points)
+   
+    let dataObject = { points: total };
 
     await fetch("http://localhost:3000/api/points/1", {
       method: "PATCH",
@@ -33,8 +40,9 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <ProgressBar progressValue={progressValue}></ProgressBar>
+      <ProgressBar points={points} progressValue={progressValue}></ProgressBar>
       <Form onClickHandler={onClickHandler} />
+      <TeamStats points={points}/>
     </div>
   );
 }
