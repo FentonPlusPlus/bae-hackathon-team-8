@@ -2,7 +2,9 @@ import "./App.css";
 import Form from "./components/Form";
 import ProgressBar from "./components/ProgressBar";
 import { useState } from "react";
-import Header from "./components/Header"
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Nav from './components/Nav';
 
 function App() {
   const [progressValue, setProgressValue] = useState(50);
@@ -22,9 +24,11 @@ function App() {
 
   return (
     <div className="App">
+      <Nav />
       <Header/>
       <ProgressBar progressValue={progressValue}></ProgressBar>
       <Form onClickHandler={onClickHandler} />
+      <Footer />
     </div>
   );
 }
