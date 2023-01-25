@@ -1,6 +1,6 @@
 import "./App.css";
 import Form from "./components/Form";
-import ProgressBar from "./components/ProgressBar";
+import ProgressBar from "./components/ProgressBar/index.js";
 import Footer from "./components/Footer";
 import Nav from './components/Nav';
 import { useState, useEffect } from "react";
@@ -8,7 +8,7 @@ import Header from "./components/Header";
 import TeamStats from './components/TeamStats'
 
 function App() {
-  const [progressValue, setProgressValue] = useState(50);
+  // const [progressValue, setProgressValue] = useState(50);
 
   const [points, setPoints] = useState();
 
@@ -44,7 +44,7 @@ function App() {
     <div className="App">
       <Nav />
       <Header />
-      <ProgressBar points={points} progressValue={progressValue}></ProgressBar>
+      <ProgressBar points={points}></ProgressBar>
       <Form onClickHandler={onClickHandler} />
       <TeamStats points={points}/>
       <Footer />
