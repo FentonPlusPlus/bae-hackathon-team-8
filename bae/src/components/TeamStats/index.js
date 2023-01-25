@@ -2,7 +2,7 @@ import "./index.css";
 
 function TeamStats({points}) {
   return (
-    <div>
+    <div className="teamstats">
       <h2>Total team points: {points}/4000</h2>
       <h3>Goal rewards:</h3>
       <ul>

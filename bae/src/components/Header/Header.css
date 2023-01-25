@@ -11,6 +11,9 @@
 .header-left {
     width: 45%;
     height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .header-left img {
@@ -27,6 +30,10 @@
     width: 45%;
     height: 100%;
     gap: 5%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  
 }
 
 .header-right img {
