@@ -1,12 +1,10 @@
 import './index.css';
 
-import React from 'react'
-
 function Footer() {
   return (
-    <div>
-      
-    </div>
+    <footer>
+      <h1>Planet Points</h1>
+    </footer>
   )
 }
 

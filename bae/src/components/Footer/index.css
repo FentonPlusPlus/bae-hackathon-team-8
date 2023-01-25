@@ -1,0 +1,15 @@
+footer {
+  margin: 10px auto 80px;
+  padding: 10px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  border-top: 1.5px solid black;
+}
+
+footer h1 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+}

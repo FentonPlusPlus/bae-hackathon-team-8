@@ -1,6 +1,8 @@
 import "./App.css";
 import Form from "./components/Form";
 import ProgressBar from "./components/ProgressBar";
+import Footer from "./components/Footer";
+import Nav from './components/Nav';
 import { useState, useEffect } from "react";
 import Header from "./components/Header";
 import TeamStats from './components/TeamStats'
@@ -39,10 +41,12 @@ function App() {
 
   return (
     <div className="App">
+      <Nav />
       <Header />
       <ProgressBar points={points} progressValue={progressValue}></ProgressBar>
       <Form onClickHandler={onClickHandler} />
       <TeamStats points={points}/>
+      <Footer />
     </div>
   );
 }
