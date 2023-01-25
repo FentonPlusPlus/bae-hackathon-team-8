@@ -8,9 +8,9 @@ function App() {
   const [progressValue, setProgressValue] = useState(50);
 
   async function onClickHandler(data) {
-    let dataObject = { points: data };
+    let dataObject = { points: Number(data) };
 
-    await fetch("https://bae.onrender.com/api/points/1", {
+    await fetch("http://localhost:3000/api/points/1", {
       method: "PATCH",
       headers: {
         Accept: "application/json",
