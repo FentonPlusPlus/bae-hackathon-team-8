@@ -6,9 +6,10 @@ function ProgressBar({points}) {
   
   return (
     <div>
-      <Progress value={pointsNumber} colorScheme='green' max='100' min='0' size='large' height='50px'></Progress>
+      <Progress value={pointsNumber} colorScheme='green' max='500' min='0' size='large' height='50px'></Progress>
     </div>
   )
 };
 
 export default ProgressBar;
+

@@ -10,7 +10,7 @@ import TeamStats from "./components/TeamStats";
 function App() {
   // const [progressValue, setProgressValue] = useState(50);
 
-  const [points, setPoints] = useState();
+  const [points, setPoints] = useState(100);
 
   useEffect(() => {
     getData();
@@ -43,11 +43,11 @@ function App() {
     <div className="App">
       <Nav />
       <Header />
-      <ProgressBar points={points}></ProgressBar>
       <div className="formteam-div">
         <Form onClickHandler={onClickHandler} />
         <TeamStats points={points} />
       </div>
+      <ProgressBar points={points}></ProgressBar>
       <Footer />
     </div>
   );
