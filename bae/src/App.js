@@ -3,6 +3,8 @@ import Form from './components/Form';
 
 function App() {
 
+
+
   async function onClickHandler(data){
     let dataObject = {points: data} 
     
