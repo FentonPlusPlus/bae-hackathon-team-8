@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import Form from './components/Form';
 
@@ -17,9 +16,17 @@ function App() {
     })
   }
 
+
+import ProgressBar from './components/ProgressBar';
+import { useState } from 'react';
+
+function App() {
+  const [progressValue, setProgressValue] = useState(50);
+  
   return (
     <div className="App">
-      <Form onClickHandler={onClickHandler}/>
+      <ProgressBar progressValue={progressValue}></ProgressBar>
+
     </div>
   );
 }
