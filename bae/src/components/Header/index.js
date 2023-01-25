@@ -4,9 +4,10 @@ import React from 'react'
 
 function Header() {
   return (
-    <div>
-      
-    </div>
+    <nav>
+      <h1>App Name Goes Here</h1>
+      <button>Menu</button>
+    </nav>
   )
 }
 
