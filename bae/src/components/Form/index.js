@@ -33,7 +33,7 @@ function Form({onClickHandler}) {
         <p>The Amount of points you can earn for this action is: </p>
         <p>{pointsMessage}</p>
       </div>
-      <button onClick={()=>onClickHandler(pointsMessage)}>Save Points</button>
+      <button className="button" onClick={()=>onClickHandler(pointsMessage)}>Save Points</button>
     </div>
   );
 }
