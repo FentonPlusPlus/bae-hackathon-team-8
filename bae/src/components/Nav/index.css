@@ -1,0 +1,37 @@
+nav {
+    margin: 10px auto 80px;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1.5px solid black;
+} 
+
+nav title {
+    width: 60%;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-around;
+    margin-right: 10%;
+}
+
+nav button {
+    margin-right: 5%;
+    width: 75px;
+    height: 35px;
+    border-bottom: 1px solid black;
+}
+
+.sign-out {
+    width: 100px;
+}
+nav h1 {
+  margin-right: auto;
+  padding-right: 15%;
+  font-style: bold;
+  color: green;
+}
+

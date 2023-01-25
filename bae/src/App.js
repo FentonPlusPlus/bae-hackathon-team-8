@@ -1,34 +1,53 @@
-import './App.css';
-import Form from './components/Form';
+import "./App.css";
+import Form from "./components/Form";
+import ProgressBar from "./components/ProgressBar";
+import Footer from "./components/Footer";
+import Nav from './components/Nav';
+import { useState, useEffect } from "react";
+import Header from "./components/Header";
+import TeamStats from './components/TeamStats'
 
 function App() {
+  const [progressValue, setProgressValue] = useState(50);
+
+  const [points, setPoints] = useState();
+
+  useEffect(() => {getData()}, []);
+
+  async function getData() {
+    const response = await fetch("http://localhost:3000/api/points");
+    const data = await response.json();
+    setPoints(data.payload[0][0].points);
+  }
+
+  
+
+  async function onClickHandler(data) {
+    await getData()
 
 
+    let total = Number(data) + Number(points)
+   
+    let dataObject = { points: total };
 
-  async function onClickHandler(data){
-    let dataObject = {points: data} 
-    
-    await fetch('https://bae.onrender.com/api/points/1' , {
+    await fetch("http://localhost:3000/api/points/1", {
       method: "PATCH",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(dataObject),
-    })
+    });
   }
 
-
-import ProgressBar from './components/ProgressBar';
-import { useState } from 'react';
-
-function App() {
-  const [progressValue, setProgressValue] = useState(50);
-  
   return (
     <div className="App">
-      <ProgressBar progressValue={progressValue}></ProgressBar>
-
+      <Nav />
+      <Header />
+      <ProgressBar points={points} progressValue={progressValue}></ProgressBar>
+      <Form onClickHandler={onClickHandler} />
+      <TeamStats points={points}/>
+      <Footer />
     </div>
   );
 }
