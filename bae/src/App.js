@@ -27,7 +27,7 @@ function App() {
 
 
     let total = Number(data) + Number(points)
-   
+    setPoints(total)
     let dataObject = { points: total };
 
     await fetch("http://localhost:3000/api/points/1", {
