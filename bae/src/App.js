@@ -25,6 +25,7 @@ function App() {
   async function onClickHandler(data) {
     await getData()
 
+
     let total = Number(data) + Number(points)
    
     let dataObject = { points: total };
